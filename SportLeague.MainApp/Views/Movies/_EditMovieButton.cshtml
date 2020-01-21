@@ -1,0 +1,6 @@
+﻿@model SportLigue.MainApp.Models.ViewModels.EditMovieButtomViewModel
+
+@if (User.Identity.Name == Model.UploaderName)
+{
+	@Html.ActionLink("Редактирование", "EditMovie", "Movies", new { id = Model.Id },  new { @class = "btn btn-primary btn-md"})
+}

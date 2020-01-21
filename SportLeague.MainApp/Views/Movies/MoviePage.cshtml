@@ -1,0 +1,62 @@
+﻿@using SportLigue.MainApp.Models.ViewModels
+@model SportLigue.MainApp.Models.ViewModels.ReadMovieViewModel
+@{
+	ViewBag.Title = "MoviePage";
+	var base64 = Convert.ToBase64String(Model.Poster);
+	var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+}
+
+<br />
+<br />
+
+<div class="container">
+	<div class="col-md-5 col-sm-6 text-center">
+		<div class="row">
+			<img id="@Html.NameFor(m => m.Poster)" name="@Html.NameFor(m => m.Poster)" src="@imgSrc" style="height: 450px; width: 300px; object-fit: cover;" alt="@Html.NameFor(m => m.Poster)" />
+		</div>
+	</div>
+	<div class="col-md-7 col-sm-6 text-justify">
+		<br />
+		<br />
+		<div class="row">
+			<div class="col-md-3 col-sm-4 col-xs-4">
+				@Html.LabelFor(m => m.Name)
+			</div>
+			<div class="col-md-9 col-sm-8 col-xs-8">
+				@Html.DisplayFor(m => m.Name)
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-4 col-xs-4">
+				@Html.LabelFor(m => m.ReleaseDate)
+			</div>
+			<div class="col-md-9 col-sm-8 col-xs-8">
+				@Html.DisplayFor(m => m.ReleaseDate)
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-4 col-xs-4">
+				@Html.LabelFor(m => m.DirectorName)
+			</div>
+			<div class="col-md-9 col-sm-8 col-xs-8">
+				@Html.DisplayFor(m => m.DirectorName)
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-4 col-xs-4">
+				@Html.LabelFor(m => m.Description)
+			</div>
+			<div class="col-md-9 col-sm-8 col-xs-8">
+				@Html.DisplayFor(m => m.Description)
+			</div>
+		</div>
+		<div class="row">
+			<br />
+		</div>
+		<div class="row">
+			<div class="col-md-5 col-sm-8 col-xs-12 text-center">
+				@Html.Partial("_EditMovieButton", new EditMovieButtomViewModel() { Id = Model.Id, UploaderName = Model.UploaderName })
+			</div>
+		</div>
+	</div>
+</div>

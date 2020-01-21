@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportLeague.MainApp", "SportLeague.MainApp\SportLeague.MainApp.csproj", "{727E0395-EDDE-4271-9B3A-03C22D79AE8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportLeague.Tests", "SportLeague.Tests\SportLeague.Tests.csproj", "{31E495AF-624E-4474-A392-A820F63AD2DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{727E0395-EDDE-4271-9B3A-03C22D79AE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727E0395-EDDE-4271-9B3A-03C22D79AE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727E0395-EDDE-4271-9B3A-03C22D79AE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727E0395-EDDE-4271-9B3A-03C22D79AE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E495AF-624E-4474-A392-A820F63AD2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E495AF-624E-4474-A392-A820F63AD2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E495AF-624E-4474-A392-A820F63AD2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E495AF-624E-4474-A392-A820F63AD2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12A06284-DF8E-45FE-9758-52F4B4597C69}
+	EndGlobalSection
+EndGlobal

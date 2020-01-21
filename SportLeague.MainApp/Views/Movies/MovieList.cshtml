@@ -1,0 +1,61 @@
+﻿@using SportLigue.MainApp.Models.ViewModels;
+@model SportLigue.MainApp.Models.ViewModels.MovieListViewModel
+
+@{
+    ViewBag.Title = "Список фильмов";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+<div class="container">
+	<div class="row">
+		<table class="table table-hover table-bordered">
+			<thead style="background-color: #377aa1; color: #ffffff">
+				<tr>
+					<th scope="col">Название</th>
+					<th scope="col" style="width: 18%">Режиссер</th>
+					<th scope="col" style="width: 120px">Год</th>
+					<th scope="col" style="width: 100px">Посмотреть</th>
+					<th scope="col" style="width: 150px">Редактировать</th>
+				</tr>
+			</thead>
+			@foreach (var item in Model.MovieList)
+			{
+				<tr>
+					<td style="vertical-align: middle">
+						@item.Name
+					</td>
+					<td style="vertical-align: middle">
+						@Html.DisplayFor(modelItem => item.DirectorName)
+					</td>
+					<td style="vertical-align: middle">
+						@Html.DisplayFor(modelItem => item.ReleaseDate)
+					</td>
+					<td class="text-center">
+						@Html.ActionLink("Просмотр", "GetMovie", "Movies", new { id = item.Id }, new { @class = "btn btn-success btn-md"})
+					</td>
+					<td class="text-center">
+						@Html.Partial("_EditMovieButton", new EditMovieButtomViewModel() { Id = item.Id, UploaderName = item.UploaderName})
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+	<div class="row">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				@if (Model.PageNumber > 1)
+				{
+					<li class="page-item">@Html.ActionLink("Previous", "GetMovieList", "Movies", new { id = Model.PageNumber - 1, filter = Model.Filter }, new { @class = "page-link" })</li>
+					<li class="page-item">@Html.ActionLink((Model.PageNumber - 1).ToString(), "GetMovieList", "Movies", new { id = Model.PageNumber - 1, filter = Model.Filter }, new { @class = "page-link" })</li>
+				}
+				<li class="page-item active">@Html.ActionLink(Model.PageNumber.ToString(), "GetMovieList", "Movies", new { id = Model.PageNumber, filter = Model.Filter }, new { @class = "page-link" })</li>
+				@if (Model.PageNumber < Model.PageCount)
+				{
+					<li class="page-item">@Html.ActionLink((Model.PageNumber + 1).ToString(), "GetMovieList", "Movies", new { id = Model.PageNumber + 1, filter = Model.Filter }, new { @class = "page-link" })</li>
+					<li class="page-item">@Html.ActionLink("Next", "GetMovieList", "Movies", new { id = Model.PageNumber + 1, filter = Model.Filter }, new { @class = "page-link" })</li>
+				}
+			</ul>
+		</nav>
+	</div>
+</div>
