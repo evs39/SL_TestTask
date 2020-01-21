@@ -8,6 +8,11 @@ namespace SportLigue.MainApp.ExtensionMethods
 {
 	public static class StringExtensions
 	{
+		/// <summary>
+		/// Метод форматирования строки как имени (первые буквы слов - заглавные)
+		/// </summary>
+		/// <param name="name">Исходная строка</param>
+		/// <returns></returns>
 		public static string FormatAsName(this string name)
 		{
 			if (name.IsNullOrWhiteSpace())
@@ -24,12 +29,22 @@ namespace SportLigue.MainApp.ExtensionMethods
 			return formattedName;
 		}
 
+		/// <summary>
+		/// Метод форматирования перевода первого символа строки в верхний регистр
+		/// </summary>
+		/// <param name="toConvert"></param>
+		/// <returns></returns>
 		public static string ToFirstCharUppercase(this string toConvert)
 		{
 			// First char to Uppercase
 			return toConvert.Substring(0, 1).ToUpper() + toConvert.Substring(1);
 		}
 
+		/// <summary>
+		/// Объединение методов Trim и ToLower для форматирования строки
+		/// </summary>
+		/// <param name="toConvert"></param>
+		/// <returns></returns>
 		public static string TrimAndToLower(this string toConvert)
 		{
 			// Remove start/end string spaces and convert to lowercase

@@ -6,6 +6,9 @@ using System.Web;
 
 namespace SportLigue.MainApp.Annotations
 {
+	/// <summary>
+	/// Атрибут валидации года выпуска фильма
+	/// </summary>
 	public class ReleaseYearAttribute : ValidationAttribute
 	{
 		public ReleaseYearAttribute()

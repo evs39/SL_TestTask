@@ -6,10 +6,16 @@ using System.Web;
 
 namespace SportLigue.MainApp.Annotations
 {
+	/// <summary>
+	/// Атрибут валидации типа загружаемого на сервер файла
+	/// </summary>
 	public class PictureAttribute : ValidationAttribute
 	{
 		private static string[] AllowedTypes;
 
+		/// <summary>
+		/// Инициализация разрешенных типов
+		/// </summary>
 		static PictureAttribute()
 		{
 			AllowedTypes = new string[]

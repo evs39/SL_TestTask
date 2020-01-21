@@ -8,6 +8,9 @@ using SportLigue.MainApp.Annotations;
 
 namespace SportLigue.MainApp.Models.ViewModels
 {
+	/// <summary>
+	/// Модель сохранения данных о фильме
+	/// </summary>
 	public class CreateMovieViewModel
 	{
 		[Required]
@@ -20,10 +23,15 @@ namespace SportLigue.MainApp.Models.ViewModels
 		public string DirectorName { get; set; }
 		[Required]
 		[Picture]
+		[Display(Name = "Постер")]
 		public HttpPostedFileBase Poster { get; set; }
+		[Display(Name = "Режиссер")]
 		public int ReleaseYear { get; set; }
 	}
 
+	/// <summary>
+	/// Модель получения данных о фильме
+	/// </summary>
 	public class ReadMovieViewModel
 	{
 		public long Id { get; set; }
@@ -42,6 +50,9 @@ namespace SportLigue.MainApp.Models.ViewModels
 		public int ReleaseYear { get; set; }
 	}
 
+	/// <summary>
+	/// Модель получения данных о фильме для последующего редактирования
+	/// </summary>
 	public class EditMovieGetViewModel
 	{
 		public long Id { get; set; }
@@ -57,11 +68,17 @@ namespace SportLigue.MainApp.Models.ViewModels
 		public int ReleaseYear { get; set; }
 	}
 
+	/// <summary>
+	/// Модель сохранения данных после внесения в них изменений
+	/// </summary>
 	public class EditMovieSetViewModel : EditMovieGetViewModel
 	{
 		public HttpPostedFileBase Poster { get; set; }
 	}
 
+	/// <summary>
+	/// Модель для отображения данных о фильме в таблице
+	/// </summary>
 	public class MovieListItemViewModel
 	{
 		public long Id { get; set; }
@@ -73,6 +90,9 @@ namespace SportLigue.MainApp.Models.ViewModels
 		public int ReleaseYear { get; set; }
 	}
 
+	/// <summary>
+	/// Модель для передачи списка фильмов для отображения его в таблице
+	/// </summary>
 	public class MovieListViewModel
 	{
 		public List<MovieListItemViewModel> MovieList { get; set; }
@@ -81,6 +101,9 @@ namespace SportLigue.MainApp.Models.ViewModels
 		public string Filter { get; set; }
 	}
 
+	/// <summary>
+	/// Модель для генерации кнопки "Редактирование" на страницах
+	/// </summary>
 	public class EditMovieButtomViewModel
 	{
 		public long Id { get; set; }

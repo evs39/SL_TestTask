@@ -19,12 +19,21 @@ namespace SportLigue.MainApp.Controllers
 			_movieService = movieService;
 		}
 
+		/// <summary>
+		/// Переход на страницу сохранения фильма
+		/// </summary>
+		/// <returns></returns>
 		[HttpGet]
 		public ActionResult AddMovie()
 		{
 			return View();
 		}
 
+		/// <summary>
+		/// Сохранение фильма
+		/// </summary>
+		/// <param name="model">Данные фильма</param>
+		/// <returns></returns>
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public async Task<ActionResult> AddMovie(CreateMovieViewModel model)
@@ -45,6 +54,11 @@ namespace SportLigue.MainApp.Controllers
 			return View();
 		}
 
+		/// <summary>
+		/// Переход на страницу редактирования данных фильма
+		/// </summary>
+		/// <param name="id">Идентификатор фильма</param>
+		/// <returns></returns>
 		[HttpGet]
 		public async Task<ActionResult> EditMovie(long id)
 		{
@@ -61,6 +75,11 @@ namespace SportLigue.MainApp.Controllers
 			}
 		}
 
+		/// <summary>
+		/// Изменение данных фильма
+		/// </summary>
+		/// <param name="model">Данные фильма</param>
+		/// <returns></returns>
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public async Task<ActionResult> EditMovie(EditMovieSetViewModel model)
@@ -69,7 +88,7 @@ namespace SportLigue.MainApp.Controllers
 			{
 				try
 				{
-					var id = await _movieService.EditAsync(model, User.Identity.Name);
+					var id = await _movieService.UpdateAsync(model, User.Identity.Name);
 					return RedirectToActionPermanent("GetMovie", new { id });
 				}
 				catch (Exception e)
@@ -82,6 +101,11 @@ namespace SportLigue.MainApp.Controllers
 			return View();
 		}
 
+		/// <summary>
+		/// Переход на страницу фильма
+		/// </summary>
+		/// <param name="id">Идентификатор фильма</param>
+		/// <returns></returns>
 		[HttpGet]
 		[AllowAnonymous]
 		public async Task<ActionResult> GetMovie(long id)
@@ -94,23 +118,30 @@ namespace SportLigue.MainApp.Controllers
 			catch(Exception e)
 			{
 				ViewData["Error"] = e.Message;
-				return View("MovieError"); // TODO error page
+				return View("MovieError");
 			}
 		}
 
+		/// <summary>
+		/// Переход на страницу со списком фильмов
+		/// </summary>
+		/// <param name="id">Номер страницы</param>
+		/// <param name="itemsOnPage">Количество строк в таблице фильмов</param>
+		/// <param name="filter">Фильтр фильмов по названию</param>
+		/// <returns></returns>
 		[HttpGet]
 		[AllowAnonymous]
-		public async Task<ActionResult> GetMovieList(int id = 1, string filter = null)
+		public async Task<ActionResult> GetMovieList(int id = 1, int itemsOnPage = 5, string filter = null)
 		{
 			try
 			{
-				var result = await _movieService.ReadListAsync(id, 5, filter);
+				var result = await _movieService.ReadListAsync(id, itemsOnPage, filter);
 				return View("MovieList", result);
 			}
 			catch (Exception e)
 			{
 				ViewData["Error"] = e.Message;
-				return View("MovieError"); // TODO error page
+				return View("MovieError");
 			}
 		}
 	}
