@@ -11,39 +11,50 @@ namespace SportLigue.MainApp.Models.ViewModels
 	public class CreateMovieViewModel
 	{
 		[Required]
+		[Display(Name = "Название")]
 		public string Name { get; set; }
+		[Display(Name = "Описание")]
 		public string Description { get; set; }
 		[Required]
+		[Display(Name = "Режиссер")]
 		public string DirectorName { get; set; }
 		[Required]
-		[PictureValidation]
+		[Picture]
 		public HttpPostedFileBase Poster { get; set; }
-		public DateTime ReleaseDate { get; set; }
+		public int ReleaseYear { get; set; }
 	}
 
 	public class ReadMovieViewModel
 	{
 		public long Id { get; set; }
+		[Display(Name = "Название")]
 		public string Name { get; set; }
+		[Display(Name = "Описание")]
 		public string Description { get; set; }
+		[Display(Name = "Режиссер")]
 		public string DirectorName { get; set; }
+		[Display(Name = "Загрузил")]
 		public string UploaderName { get; set; }
 		public byte[] Poster { get; set; }
 
-		[DataType(DataType.Date)]
-		public DateTime ReleaseDate { get; set; }
+		[ReleaseYear]
+		[Display(Name = "Год производства")]
+		public int ReleaseYear { get; set; }
 	}
 
 	public class EditMovieGetViewModel
 	{
 		public long Id { get; set; }
+		[Display(Name = "Название")]
 		public string Name { get; set; }
+		[Display(Name = "Описание")]
 		public string Description { get; set; }
+		[Display(Name = "Режиссер")]
 		public string DirectorName { get; set; }
 		public string UploaderName { get; set; }
 
-		[DataType(DataType.Date)]
-		public DateTime ReleaseDate { get; set; }
+		[ReleaseYear]
+		public int ReleaseYear { get; set; }
 	}
 
 	public class EditMovieSetViewModel : EditMovieGetViewModel
@@ -58,8 +69,8 @@ namespace SportLigue.MainApp.Models.ViewModels
 		public string DirectorName { get; set; }
 		public string UploaderName { get; set; }
 
-		[DataType(DataType.Date)]
-		public DateTime ReleaseDate { get; set; }
+		[ReleaseYear]
+		public int ReleaseYear { get; set; }
 	}
 
 	public class MovieListViewModel

@@ -55,12 +55,12 @@ namespace SportLigue.MainApp.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Пароль изменен."
+                : message == ManageMessageId.SetPasswordSuccess ? "Пароль установлен."
+                : message == ManageMessageId.SetTwoFactorSuccess ? "Двухфакторная аутентификация установлена."
+                : message == ManageMessageId.Error ? "Произошла ошибка."
+                : message == ManageMessageId.AddPhoneSuccess ? "Номер телефона добавлен."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Номер телефона удален."
                 : "";
 
             var userId = User.Identity.GetUserId();

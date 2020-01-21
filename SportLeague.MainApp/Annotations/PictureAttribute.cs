@@ -6,11 +6,11 @@ using System.Web;
 
 namespace SportLigue.MainApp.Annotations
 {
-	public class PictureValidationAttribute : ValidationAttribute
+	public class PictureAttribute : ValidationAttribute
 	{
 		private static string[] AllowedTypes;
 
-		static PictureValidationAttribute()
+		static PictureAttribute()
 		{
 			AllowedTypes = new string[]
 			{
@@ -20,7 +20,7 @@ namespace SportLigue.MainApp.Annotations
 			};
 		}
 
-		public PictureValidationAttribute()
+		public PictureAttribute()
 		{
 			ErrorMessage = "Недопустимый формат файла";
 		}
