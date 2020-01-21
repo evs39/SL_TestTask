@@ -83,6 +83,7 @@ namespace SportLigue.MainApp.Controllers
 		}
 
 		[HttpGet]
+		[AllowAnonymous]
 		public async Task<ActionResult> GetMovie(long id)
 		{
 			try
