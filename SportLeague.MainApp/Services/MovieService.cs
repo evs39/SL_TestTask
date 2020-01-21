@@ -54,7 +54,7 @@ namespace SportLigue.MainApp.Services
 			{
 				Name = model.Name,
 				Description = model.Description,
-				ReleaseDate = model.ReleaseDate,
+				ReleaseDate = model.ReleaseYear,
 				Director = director,
 				Uploader = user,
 				Poster = poster
@@ -103,7 +103,7 @@ namespace SportLigue.MainApp.Services
 
 			movie.Name = model.Name;
 			movie.Description = model.Description;
-			movie.ReleaseDate = model.ReleaseDate;
+			movie.ReleaseDate = model.ReleaseYear;
 			movie.Director = director;
 			movie.Uploader = user;
 			movie.Poster = poster;
@@ -123,7 +123,7 @@ namespace SportLigue.MainApp.Services
 					Description = m.Description,
 					UploaderName = m.Uploader.UserName,
 					DirectorName = m.Director.Name,
-					ReleaseDate = m.ReleaseDate,
+					ReleaseYear = m.ReleaseDate,
 					Poster = m.Poster
 				})
 				.FirstOrDefaultAsync(m => m.Id == id);
@@ -143,7 +143,7 @@ namespace SportLigue.MainApp.Services
 					DirectorName = m.Director.Name,
 					Description = m.Description,
 					UploaderName = m.Uploader.UserName,
-					ReleaseDate = m.ReleaseDate
+					ReleaseYear = m.ReleaseDate
 				})
 				.FirstOrDefaultAsync(m => m.Id == id);
 			if (model == null)
@@ -180,7 +180,7 @@ namespace SportLigue.MainApp.Services
 						Name = m.Name,
 						UploaderName = m.Uploader.UserName,
 						DirectorName = m.Director.Name,
-						ReleaseDate = m.ReleaseDate
+						ReleaseYear = m.ReleaseDate
 					})
 					.ToListAsync();
 			else

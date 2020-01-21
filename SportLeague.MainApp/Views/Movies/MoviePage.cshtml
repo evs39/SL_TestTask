@@ -1,12 +1,13 @@
 ﻿@using SportLigue.MainApp.Models.ViewModels
 @model SportLigue.MainApp.Models.ViewModels.ReadMovieViewModel
 @{
-	ViewBag.Title = "MoviePage";
+	ViewBag.Title = $"Страница фильма \"{Model.Name}\"";
 	var base64 = Convert.ToBase64String(Model.Poster);
 	var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 }
 
 <br />
+<h2 class="text-center">@ViewBag.Title.</h2>
 <br />
 
 <div class="container">
@@ -28,10 +29,10 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3 col-sm-4 col-xs-4">
-				@Html.LabelFor(m => m.ReleaseDate)
+				@Html.LabelFor(m => m.ReleaseYear)
 			</div>
 			<div class="col-md-9 col-sm-8 col-xs-8">
-				@Html.DisplayFor(m => m.ReleaseDate)
+				@Html.DisplayFor(m => m.ReleaseYear)
 			</div>
 		</div>
 		<div class="row">
@@ -51,7 +52,15 @@
 			</div>
 		</div>
 		<div class="row">
-			<br />
+			<div class="col-md-3 col-sm-4 col-xs-4">
+				@Html.LabelFor(m => m.UploaderName)
+			</div>
+			<div class="col-md-9 col-sm-8 col-xs-8">
+				@Html.DisplayFor(m => m.UploaderName)
+			</div>
+		</div>
+		<div class="row">
+			<div class="divider"></div>
 		</div>
 		<div class="row">
 			<div class="col-md-5 col-sm-8 col-xs-12 text-center">

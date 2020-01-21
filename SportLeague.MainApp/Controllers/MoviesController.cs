@@ -42,7 +42,6 @@ namespace SportLigue.MainApp.Controllers
 					return View("MovieError");
 				}
 			}
-
 			return View();
 		}
 

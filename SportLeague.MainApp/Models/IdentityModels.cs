@@ -42,9 +42,9 @@ namespace SportLigue.MainApp.Models
 				.HasMaxLength(50)
 				.IsRequired();
 
-			modelBuilder.Entity<Movie>()
-				.Property(m => m.ReleaseDate)
-				.HasColumnType(DataType.Date.ToString());
+			//modelBuilder.Entity<Movie>()
+			//	.Property(m => m.ReleaseDate)
+			//	.HasDefaultValue();
 
 			modelBuilder.Entity<Movie>()
 				.HasIndex(m => m.Id)

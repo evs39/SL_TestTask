@@ -12,7 +12,7 @@ namespace SportLigue.MainApp.Models
 		public string Description { get; set; }
 		public long DirectorId { get; set; }
 		public string UploaderId { get; set; }
-		public DateTime ReleaseDate { get; set; }
+		public int ReleaseDate { get; set; }
 		public byte[] Poster { get; set; }
 
 		public virtual ApplicationUser Uploader { get; set; }

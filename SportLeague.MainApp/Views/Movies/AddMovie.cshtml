@@ -1,14 +1,15 @@
 ﻿@model SportLigue.MainApp.Models.ViewModels.CreateMovieViewModel
 @{
-    ViewBag.Title = "Add Movie";
+    ViewBag.Title = "Добавить фильм в библиотеку";
 }
 
+<br />
 <h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm("AddMovie", "Movies", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Add new movie to library.</h4>
+    <h4>На этой странице вы можете добавить свой фильм в имеющуюся библиотеку.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -20,13 +21,13 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        <label for="release-date" class="col-md-2 control-label">Release date</label>
+        @Html.LabelFor(m => m.ReleaseYear, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <input type="date" id="@Html.NameFor(m => m.ReleaseDate)e" name="@Html.NameFor(m => m.ReleaseDate)" class="form-control" />
+            @Html.TextBoxFor(m => m.ReleaseYear, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
@@ -44,7 +45,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Send to server" />
+            <input type="submit" class="btn btn-default" value="Отправить" />
         </div>
     </div>
 }

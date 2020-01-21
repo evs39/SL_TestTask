@@ -29,7 +29,7 @@
 						@Html.DisplayFor(modelItem => item.DirectorName)
 					</td>
 					<td style="vertical-align: middle">
-						@Html.DisplayFor(modelItem => item.ReleaseDate)
+						@Html.DisplayFor(modelItem => item.ReleaseYear)
 					</td>
 					<td class="text-center">
 						@Html.ActionLink("Просмотр", "GetMovie", "Movies", new { id = item.Id }, new { @class = "btn btn-success btn-md"})
@@ -46,14 +46,14 @@
 			<ul class="pagination">
 				@if (Model.PageNumber > 1)
 				{
-					<li class="page-item">@Html.ActionLink("Previous", "GetMovieList", "Movies", new { id = Model.PageNumber - 1, filter = Model.Filter }, new { @class = "page-link" })</li>
+					<li class="page-item">@Html.ActionLink("Предыдущая", "GetMovieList", "Movies", new { id = Model.PageNumber - 1, filter = Model.Filter }, new { @class = "page-link" })</li>
 					<li class="page-item">@Html.ActionLink((Model.PageNumber - 1).ToString(), "GetMovieList", "Movies", new { id = Model.PageNumber - 1, filter = Model.Filter }, new { @class = "page-link" })</li>
 				}
 				<li class="page-item active">@Html.ActionLink(Model.PageNumber.ToString(), "GetMovieList", "Movies", new { id = Model.PageNumber, filter = Model.Filter }, new { @class = "page-link" })</li>
 				@if (Model.PageNumber < Model.PageCount)
 				{
 					<li class="page-item">@Html.ActionLink((Model.PageNumber + 1).ToString(), "GetMovieList", "Movies", new { id = Model.PageNumber + 1, filter = Model.Filter }, new { @class = "page-link" })</li>
-					<li class="page-item">@Html.ActionLink("Next", "GetMovieList", "Movies", new { id = Model.PageNumber + 1, filter = Model.Filter }, new { @class = "page-link" })</li>
+					<li class="page-item">@Html.ActionLink("Следующая", "GetMovieList", "Movies", new { id = Model.PageNumber + 1, filter = Model.Filter }, new { @class = "page-link" })</li>
 				}
 			</ul>
 		</nav>

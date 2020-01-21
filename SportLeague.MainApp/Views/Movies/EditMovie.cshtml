@@ -6,7 +6,8 @@
 	var currentMovieData = ViewData["CurrentMovieData"] as EditMovieGetViewModel;
 }
 
-<h2>@ViewBag.Title</h2>
+<br />
+<h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm("EditMovie", "Movies", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
@@ -17,25 +18,25 @@
 	<div class="form-group">
 		@Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = currentMovieData?.Name})
+			@Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value = currentMovieData?.Name })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.Description, new { @class = "form-control", @placeholder = currentMovieData?.Description})
+			@Html.TextAreaFor(m => m.Description, new { @class = "form-control", @Value = currentMovieData?.Description })
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="release-date" class="col-md-2 control-label">Release date</label>
+		@Html.LabelFor(m => m.ReleaseYear, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			<input type="date" id="@Html.NameFor(m => m.ReleaseDate)e" name="@Html.NameFor(m => m.ReleaseDate)" class="form-control" placeholder="@currentMovieData?.ReleaseDate"/>
+			@Html.TextBoxFor(m => m.ReleaseYear, new { @class = "form-control", @Value = currentMovieData?.ReleaseYear })
 		</div>
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.DirectorName, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.DirectorName, new { @class = "form-control", @placeholder = currentMovieData?.DirectorName})
+			@Html.TextBoxFor(m => m.DirectorName, new { @class = "form-control", @Value = currentMovieData?.DirectorName })
 		</div>
 	</div>
 	<div class="form-group">
@@ -47,7 +48,7 @@
 
 	<div class="form-group">
 		<div class="col-md-offset-2 col-md-10">
-			<input type="submit" class="btn btn-default" value="Send to server" />
+			<input type="submit" class="btn btn-default" value="Отправить" />
 		</div>
 	</div>
 }

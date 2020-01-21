@@ -177,7 +177,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Annotations\PictureValidationAttribute.cs" />
+    <Compile Include="Annotations\PictureAttribute.cs" />
+    <Compile Include="Annotations\ReleaseYearAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -206,6 +207,10 @@
     <Compile Include="Migrations\202001201307200_IndexReconfigure.cs" />
     <Compile Include="Migrations\202001201307200_IndexReconfigure.Designer.cs">
       <DependentUpon>202001201307200_IndexReconfigure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001210931052_YearIsInt.cs" />
+    <Compile Include="Migrations\202001210931052_YearIsInt.Designer.cs">
+      <DependentUpon>202001210931052_YearIsInt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -308,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001201307200_IndexReconfigure.resx">
       <DependentUpon>202001201307200_IndexReconfigure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001210931052_YearIsInt.resx">
+      <DependentUpon>202001210931052_YearIsInt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
