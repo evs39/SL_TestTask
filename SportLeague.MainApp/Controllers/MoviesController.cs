@@ -84,6 +84,9 @@ namespace SportLigue.MainApp.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<ActionResult> EditMovie(EditMovieSetViewModel model)
 		{
+			if (User.Identity.Name != model.UploaderName)
+				return RedirectToAction("GetMovieList");
+
 			if (ModelState.IsValid)
 			{
 				try
